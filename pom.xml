@@ -52,9 +52,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	<scm>
-		<developerConnection>scm:git:https://github.com/ekcodeekdin/petclinic-initializr.git</developerConnection>
-	  <tag>petclinic-0.0.1</tag>
-  </scm>
 
 </project>
