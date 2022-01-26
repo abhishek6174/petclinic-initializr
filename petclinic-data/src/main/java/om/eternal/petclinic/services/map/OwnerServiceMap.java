@@ -2,11 +2,13 @@ package om.eternal.petclinic.services.map;
 
 import om.eternal.petclinic.model.Owner;
 import om.eternal.petclinic.services.CrudService;
+import om.eternal.petclinic.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner,Long>
-    implements CrudService<Owner,Long> {
+    implements OwnerService {
     @Override
     public Set<Owner> findAll() {
         return super.findAll();
@@ -24,11 +26,17 @@ public class OwnerServiceMap extends AbstractMapService<Owner,Long>
 
     @Override
     public Owner save(Owner object) {
-        return super.save(object.getId(),object);
+        return super.save(object);
     }
 
     @Override
     public Owner findById(Long id) {
         return super.findById(id);
+    }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        //TODO need to implement this here.
+        return null;
     }
 }

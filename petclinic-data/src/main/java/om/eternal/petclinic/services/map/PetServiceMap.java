@@ -2,11 +2,13 @@ package om.eternal.petclinic.services.map;
 
 import om.eternal.petclinic.model.Pet;
 import om.eternal.petclinic.services.CrudService;
+import om.eternal.petclinic.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class PetServiceMap extends AbstractMapService<Pet,Long>
-        implements CrudService<Pet,Long> {
+        implements PetService {
     @Override
     public Set<Pet> findAll() {
         return super.findAll();
@@ -24,7 +26,7 @@ public class PetServiceMap extends AbstractMapService<Pet,Long>
 
     @Override
     public Pet save(Pet object) {
-        return super.save(object.getId(),object);
+        return super.save(object);
     }
 
     @Override

@@ -18,7 +18,7 @@
 	<name>petclinic</name>
 	<description>Pet Clinic Project v1.0</description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>1.11</java.version>
 	</properties>
 	<dependencies>
 
@@ -32,8 +32,8 @@
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
+				<artifactId>spring-boot-maven-plugin</artifactId><![CDATA[
+				]]><configuration>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
