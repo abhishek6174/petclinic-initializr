@@ -1,6 +1,6 @@
 package om.eternal.petclinic.model;
 
-public class Speciality {
+public class Speciality extends BaseEntity{
     private String description;
 
     public String getDescription() {
