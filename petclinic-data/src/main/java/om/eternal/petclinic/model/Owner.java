@@ -1,14 +1,26 @@
 package om.eternal.petclinic.model;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-
+@Entity
+@Table(name = "owners")
 public class Owner extends Person implements Comparable<Owner>{
-    private Set<Pet> pets = new HashSet<>();
+
+
+    @Column(name="city")
     private String city;
+
+    @Column(name="address")
     private String address;
+
+    @Column(name="telephone")
     private String telephone;
 
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "owner")
+    private Set<Pet> pets = new HashSet<>();
+
+    //---Getter and setter--//
     public Set<Pet> getPets() {
         return pets;
     }

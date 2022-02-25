@@ -1,13 +1,27 @@
 package om.eternal.petclinic.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
-
+@Entity
+@Table(name = "pets")
 public class Pet extends BaseEntity {
+    @Column(name="name")
     private String name;
+
+    //think in terms of column entries it would happen in table that allot of entries for Pet will be declared
+    // and most of them would be sharing type_id
+    @ManyToOne
+    @JoinColumn(name="type_id")
     private PetType petType;
+
+    @ManyToOne()
+    @JoinColumn(name="owner_id")
     private Owner owner;
+
+    @Column(name="birth_date")
     private LocalDate birthDate;
 
+    //-----------------------------//
     public String getName() {
         return name;
     }
