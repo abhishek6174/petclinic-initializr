@@ -1,12 +1,21 @@
 package om.eternal.petclinic.model;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name="visits")
 public class Visit extends BaseEntity{
+    @Column(name ="date_time")
     private LocalDateTime dateTime;
-    private String description;
-    private Pet pet;
 
+    @Column(name="description")
+    private String description;
+
+    @ManyToOne()
+    @JoinColumn(name="pet_id")
+    private Pet pet;
+   ////////////////////////////////////////////////////////
     public LocalDateTime getDateTime() {
         return dateTime;
     }
