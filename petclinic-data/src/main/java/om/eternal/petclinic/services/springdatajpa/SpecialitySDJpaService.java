@@ -3,10 +3,13 @@ package om.eternal.petclinic.services.springdatajpa;
 import om.eternal.petclinic.model.Speciality;
 import om.eternal.petclinic.repositories.SpecialityRepository;
 import om.eternal.petclinic.services.SpecialityService;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Service
+@Profile("springdatajpa")
 public class SpecialitySDJpaService implements SpecialityService {
     private final SpecialityRepository specialityRepository;
 
