@@ -1,13 +1,12 @@
 package om.eternal.petclinic.services.map;
 
 import om.eternal.petclinic.model.Pet;
-import om.eternal.petclinic.services.CrudService;
 import om.eternal.petclinic.services.PetService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 @Service
-public class PetServiceMap extends AbstractMapService<Pet,Long>
+public class PetMapService extends AbstractMapService<Pet,Long>
         implements PetService {
     @Override
     public Set<Pet> findAll() {

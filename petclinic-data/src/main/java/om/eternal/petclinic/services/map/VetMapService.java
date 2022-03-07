@@ -2,19 +2,18 @@ package om.eternal.petclinic.services.map;
 
 import om.eternal.petclinic.model.Speciality;
 import om.eternal.petclinic.model.Vet;
-import om.eternal.petclinic.services.CrudService;
 import om.eternal.petclinic.services.SpecialityService;
 import om.eternal.petclinic.services.VetService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 @Service
-public class VetServiceMap extends AbstractMapService<Vet,Long>
+public class VetMapService extends AbstractMapService<Vet,Long>
         implements VetService {
 
     SpecialityService specialityService;
 
-    public VetServiceMap(SpecialityService specialityService) {
+    public VetMapService(SpecialityService specialityService) {
         this.specialityService = specialityService;
     }
 
