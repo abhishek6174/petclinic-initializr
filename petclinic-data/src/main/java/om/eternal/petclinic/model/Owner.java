@@ -20,7 +20,7 @@ public class Owner extends Person implements Comparable<Owner>{
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
 
-    //---Getter and setter--//
+    //---Getter and setter-------------------------------------------//
     public Set<Pet> getPets() {
         return pets;
     }
