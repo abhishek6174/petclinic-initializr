@@ -1,15 +1,13 @@
 package om.eternal.petclinic.bootstrap;
 
 import om.eternal.petclinic.model.*;
-import om.eternal.petclinic.services.OwnerService;
-import om.eternal.petclinic.services.PetTypeService;
-import om.eternal.petclinic.services.SpecialityService;
-import om.eternal.petclinic.services.VetService;
+import om.eternal.petclinic.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -18,12 +16,14 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
     @Autowired
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -80,6 +80,12 @@ public class DataLoader implements CommandLineRunner {
 
         ownerService.save(owner2);
 
+        Visit fianCatVisit = new Visit();
+        fianCatVisit.setPet(fianCat);
+        fianCatVisit.setDescription("De-worming work");
+        fianCatVisit.setDateTime(LocalDateTime.now().minusMonths(1));
+
+        visitService.save(fianCatVisit);
         System.out.println("Loaded ownerrs...");
 
         Speciality radiology = new Speciality();

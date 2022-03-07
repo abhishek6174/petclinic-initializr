@@ -2,8 +2,11 @@ package om.eternal.petclinic.services.map;
 
 import om.eternal.petclinic.model.Visit;
 import om.eternal.petclinic.services.VisitService;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
+@Service
 
 public class VisitMapService extends AbstractMapService<Visit,Long> implements VisitService {
     @Override
