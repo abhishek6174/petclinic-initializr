@@ -28,9 +28,13 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
-        int count = petTypeService.findAll().size();
-        if(count ==0) {
+        int count=0;
+        try {
+            count = petTypeService.findAll().size();
+        }catch (Exception e){
+            loadData();
+        }
+        if(count == 0) {
             loadData();
         }
     }
@@ -41,9 +45,9 @@ public class DataLoader implements CommandLineRunner {
         PetType savedDogPetType = petTypeService.save(dog);
 
         PetType cat = new PetType();
-        dog.setName("Cat");
+        cat.setName("Cat");
         PetType savedCatPetType = petTypeService.save(cat);
-
+        System.out.println("########"+savedCatPetType.getId());
 
         Owner owner1 = new Owner();
 
